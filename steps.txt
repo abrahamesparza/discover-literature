@@ -1,0 +1,9 @@
+STEP 0
+[ √ ] - Create HTML document
+[ √ ] - Build main App component
+[ √ ] - Build server
+[ √ ] - Configure Webpack
+[ √ ] - Ensure App is connected to HTML document
+[ √ ] - Ensure server connects to public directory
+
+STEP 1
