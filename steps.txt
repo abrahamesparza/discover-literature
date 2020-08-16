@@ -7,3 +7,17 @@ STEP 0
 [ √ ] - Ensure server connects to public directory
 
 STEP 1
+Build a front end that displays:
+  [  ] - Main App component
+    [  ] - Should have a state that takes an array of Books
+    [  ] - Should display the Search component and Options component
+      [  ] - Add CSS styling using Tachyons
+
+  [  ] - a Search bar component (allows users to search an author name, or book title)
+    [  ] - Needs to be able to handle an onClick event to POST search query to API
+      [  ] - Add CSS styling using Tachyons
+
+  [  ] - an Option menu component (displays dropdown list of categories)
+    [  ] - Needs to be able to display a dropdown list of book categories
+      [  ] - Add CSS styling using Tachyons
+

@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import Search from './components/search';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +13,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Discover Literature</h1>
+        <h1 className='f1 tc serif'>Discover Literature</h1>
+        <Search/>
       </div>
     )
   }
