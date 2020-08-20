@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Search from './components/search';
+// import CardList from './components/cardList';
 
 class App extends React.Component {
   constructor(props) {
@@ -53,12 +54,19 @@ class App extends React.Component {
 
   render() {
     let { query, matched } = this.state;
-    console.log('query', query);
-    console.log('matched data:', matched);
+    // console.log('query', query);
+    // console.log('matched data:', matched);
     return (
       <div>
         <h1 className='f1 tc serif'>Discover Literature</h1>
         <Search change={this.handleChange} click={this.handleClick} />
+        {matched.map(book => {
+          return (
+            <div className='bg-moon-gray dib br3 pa3 ma2 grow'>
+              <a href={book.volumeInfo.infoLink}><img alt='book' href="http://books.google.com/books?id=XfFvDwAAQBAJ&dq=habits&hl=&source=gbs_api" src={book.volumeInfo.imageLinks.thumbnail}/></a>
+          </div>
+          )
+        })}
       </div>
     )
   }
