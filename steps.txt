@@ -26,9 +26,9 @@ Build a RESTful API server
 
 STEP 3
 Build Components for App
-  [  ] - Write a Card component which displays the
-    [  ] - Book image
-    [  ] - Book title (provide href link to each book'search link on google books)
-    [  ] - Author name
+  [ √ ] - Write a Card component which displays the
+    [ √ ] - Book image (provide href link to each book search on google books)
+    [ X ] - Book title - looked sloppy (will rework in separate component)
+    [ X ] - Author name - looked sloppy (will rework in separate component)
   [  ] - EXTRA: Create a modal popup to display the book's description when clicked.
 
