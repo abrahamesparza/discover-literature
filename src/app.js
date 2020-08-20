@@ -42,18 +42,10 @@ class App extends React.Component {
     .catch((err) => {
       console.error(err);
     })
-    // this.getData(data)
   }
-
-  // getData(data) {
-  //   this.setState({
-  //     matched: data
-  //   })
-  // }
 
   handleChange(e) {
     let q = e.target.value;
-    // console.log('q in handleChange', q);
     this.setState({
       query: q
     });

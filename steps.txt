@@ -17,10 +17,18 @@ Build a front end that displays:
     [ √ ] - Needs to be able to handle an onClick event to POST search query to API
       [ √ ] - Add CSS styling using Tachyons
 
-  [  ] - an Option menu component (displays dropdown list of categories)
-    [  ] - Needs to be able to display a dropdown list of book categories
-      [  ] - Add CSS styling using Tachyons
-
 STEP 2
 Build a RESTful API server
+  [ √ ] - Write POST request to server with book query
+  [ √ ] - Write helper function which uses request to retrieve data from API
+  [ √ ] - Pass query to helper function as request to API for that data
+  [ √ ] - Send data to client
+
+STEP 3
+Build Components for App
+  [  ] - Write a Card component which displays the
+    [  ] - Book image
+    [  ] - Book title (provide href link to each book'search link on google books)
+    [  ] - Author name
+  [  ] - EXTRA: Create a modal popup to display the book's description when clicked.
 
