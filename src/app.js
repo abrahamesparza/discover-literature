@@ -34,23 +34,35 @@ class App extends React.Component {
     })
     .then(res => res.json())
     .then(data => {
-      console.log('Success', data);
+      console.log('Success:', data);
+      this.setState({
+        matched: data
+      })
     })
     .catch((err) => {
       console.error(err);
     })
+    // this.getData(data)
   }
+
+  // getData(data) {
+  //   this.setState({
+  //     matched: data
+  //   })
+  // }
 
   handleChange(e) {
     let q = e.target.value;
-    console.log('q in handleChange', q);
+    // console.log('q in handleChange', q);
     this.setState({
       query: q
     });
   }
 
   render() {
-    // let { query } = this.state;
+    let { query, matched } = this.state;
+    console.log('query', query);
+    console.log('matched data:', matched);
     return (
       <div>
         <h1 className='f1 tc serif'>Discover Literature</h1>
