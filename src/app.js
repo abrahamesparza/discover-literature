@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Search from './components/search';
-// import CardList from './components/cardList';
 
 class App extends React.Component {
   constructor(props) {
@@ -54,8 +53,7 @@ class App extends React.Component {
 
   render() {
     let { query, matched } = this.state;
-    // console.log('query', query);
-    // console.log('matched data:', matched);
+    console.log('matched data:', matched);
     return (
       <div>
         <h1 className='f1 tc serif'>Discover Literature</h1>
