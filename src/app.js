@@ -10,16 +10,19 @@ class App extends React.Component {
 
     this.state = {
       matched: [], //stores data from the searched query
-      query: '' //stores text of the query
+      query: '', //stores text of the query
+      display: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.searchApi = this.searchApi.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleModal = this.handleModal.bind(this);
   }
 
   handleClick(event) {
     event.preventDefault();
     this.searchApi();
+    this.clearQuery();
   }
 
   searchApi() {
@@ -52,9 +55,25 @@ class App extends React.Component {
     });
   }
 
+  handleModal() {
+    /* write functionality to update modal display */
+    //update state to be the opposite value each time clicked
+    let { display } = this.state;
+    this.setState({
+      display: !display
+    });
+  }
+
+  clearQuery() {
+    this.setState({
+      query: ''
+    })
+  }
+
   render() {
-    let { query, matched } = this.state;
+    let { query, matched, display } = this.state;
     console.log('matched data:', matched);
+    console.log('display:', display);
     return (
       <div className='serif'>
         <h1 className='f1 tc serif'>Discover Literature</h1>
@@ -63,7 +82,7 @@ class App extends React.Component {
         {matched.map(book => {
           return (
             <div className='bg-moon-gray dib br3 pa3 ma2 grow'>
-              <a href={book.volumeInfo.infoLink}><img alt='book' href="http://books.google.com/books?id=XfFvDwAAQBAJ&dq=habits&hl=&source=gbs_api" src={book.volumeInfo.imageLinks.thumbnail}/></a>
+              <img alt='book' key={book.id} src={book.volumeInfo.imageLinks.thumbnail} onClick={this.handleModal}/>
           </div>
           )
         })}

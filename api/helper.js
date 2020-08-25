@@ -2,7 +2,6 @@
 
 let { apiKey } = require('./key');
 let request = require('request');
-const { get } = require('request');
 
 const getBooks = (title, callback) => {
   let url = `https://www.googleapis.com/books/v1/volumes?q=${title}&key=${apiKey}&maxResults=40`
