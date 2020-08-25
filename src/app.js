@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Search from './components/search';
+import Scroll from './components/scroll';
 
 class App extends React.Component {
   constructor(props) {
@@ -55,9 +56,10 @@ class App extends React.Component {
     let { query, matched } = this.state;
     console.log('matched data:', matched);
     return (
-      <div>
+      <div className='serif'>
         <h1 className='f1 tc serif'>Discover Literature</h1>
         <Search change={this.handleChange} click={this.handleClick} />
+        <Scroll>
         {matched.map(book => {
           return (
             <div className='bg-moon-gray dib br3 pa3 ma2 grow'>
@@ -65,6 +67,7 @@ class App extends React.Component {
           </div>
           )
         })}
+        </Scroll>
       </div>
     )
   }
