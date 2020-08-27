@@ -25,11 +25,9 @@ class App extends React.Component {
   handleClick(event) {
     event.preventDefault();
     this.searchApi();
-    this.clearQuery();
   }
 
   searchApi() {
-    // handle request to book api
     let { query } = this.state;
     let data = { q: query }
     fetch(`http://localhost:3000/search`, {
@@ -59,22 +57,12 @@ class App extends React.Component {
   }
 
   handleModal(e) {
-    /* write functionality to update modal display */
-    //update state to be the opposite value each time clicked
     let { display } = this.state;
     let selected = e.target.alt;
-    console.log(selected);
     this.setState({
       display: !display,
       selected: selected
     });
-    console.log('selected',selected);
-  }
-
-  clearQuery() {
-    this.setState({
-      query: ''
-    })
   }
 
   render() {
