@@ -11,7 +11,8 @@ class App extends React.Component {
     this.state = {
       matched: [], //stores data from the searched query
       query: '', //stores text of the query
-      display: false
+      display: false, //triggers false / true on book click
+      selected: '' //stores value of book clicked
     }
     this.handleChange = this.handleChange.bind(this);
     this.searchApi = this.searchApi.bind(this);
@@ -55,13 +56,17 @@ class App extends React.Component {
     });
   }
 
-  handleModal() {
+  handleModal(e) {
     /* write functionality to update modal display */
     //update state to be the opposite value each time clicked
     let { display } = this.state;
+    let selected = e.target.alt;
+    console.log(selected);
     this.setState({
-      display: !display
+      display: !display,
+      selected: selected
     });
+    console.log('selected',selected);
   }
 
   clearQuery() {
@@ -71,8 +76,7 @@ class App extends React.Component {
   }
 
   render() {
-    let { query, matched, display } = this.state;
-    console.log('matched data:', matched);
+    let { query, matched, display, selected } = this.state;
     console.log('display:', display);
     return (
       <div className='serif'>
@@ -80,11 +84,21 @@ class App extends React.Component {
         <Search change={this.handleChange} click={this.handleClick} />
         <Scroll>
         {matched.map(book => {
-          return (
-            <div className='bg-moon-gray dib br3 pa3 ma2 grow'>
-              <img alt='book' key={book.id} src={book.volumeInfo.imageLinks.thumbnail} onClick={this.handleModal}/>
-          </div>
-          )
+          if (display === false) {
+            return (
+              <div className='bg-moon-gray dib br3 pa3 ma2 grow'>
+                <img alt={book.volumeInfo.title} key={book.id} src={book.volumeInfo.imageLinks.thumbnail} onClick={this.handleModal}/>
+             </div>
+            )
+          }
+          else if (display === true && selected === book.volumeInfo.title) {
+            return (
+              <div className='tc fl w-100 mt4 bg-orange'>
+                <img alt='book' className='mt4' value={book.volumeInfo.title} key={book.id} src={book.volumeInfo.imageLinks.thumbnail} onClick={this.handleModal}/><br/>
+                <p className='tc f4 dark-gray ma4'>{book.volumeInfo.description}</p>
+             </div>
+            )
+          }
         })}
         </Scroll>
       </div>
