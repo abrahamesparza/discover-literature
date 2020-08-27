@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import Search from './components/search';
 import Scroll from './components/scroll';
 
+import './app.css';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -76,26 +78,26 @@ class App extends React.Component {
   }
 
   render() {
-    let { query, matched, display, selected } = this.state;
-    console.log('display:', display);
+    let { matched, display, selected } = this.state;
     return (
-      <div className='serif'>
-        <h1 className='f1 tc serif'>Discover Literature</h1>
+      <div className='serif bg-dark-gray'>
+        <h1 className='f1 tc moon-gray calisto'>DISCOVER LITERATURE</h1>
         <Search change={this.handleChange} click={this.handleClick} />
         <Scroll>
         {matched.map(book => {
           if (display === false) {
             return (
-              <div className='bg-moon-gray dib br3 pa3 ma2 grow'>
+              <div className='dib br3 pa3 ma2 grow'>
                 <img alt={book.volumeInfo.title} key={book.id} src={book.volumeInfo.imageLinks.thumbnail} onClick={this.handleModal}/>
              </div>
             )
           }
           else if (display === true && selected === book.volumeInfo.title) {
             return (
-              <div className='tc fl w-100 mt4 bg-orange'>
+              <div className='tc fl w-100'>
                 <img alt='book' className='mt4' value={book.volumeInfo.title} key={book.id} src={book.volumeInfo.imageLinks.thumbnail} onClick={this.handleModal}/><br/>
-                <p className='tc f4 dark-gray ma4'>{book.volumeInfo.description}</p>
+                <p className='tc f4 near-white ma4'>{book.volumeInfo.description}</p><br/>
+                <a href={book.volumeInfo.infoLink} className='f4 near-white link underline-hover near-white grow'>Learn More</a>
              </div>
             )
           }
