@@ -28,12 +28,9 @@ STEP 3
 Build Components for App
   [ √ ] - Write a Card component which displays the
     [ √ ] - Book image (provide href link to each book search on google books)
-    [ X ] - Book title - looked sloppy (will rework in separate component)
-    [ X ] - Author name - looked sloppy (will rework in separate component)
-  [  ] - EXTRA: Create a modal popup to display the book's description when clicked.
 
 STEP 4
 Build Modal for Book Selected
-  [  ] - When a user clicks on a book title, a modal should popup to display the selected book's Description and a 'Learn More' link to direct the user to that book's purchase info on google's API
+  [ √ ] - When a user clicks on a book title, a modal should popup to display the selected book's Description and a 'Learn More' link to direct the user to that book's purchase info on google's API
 
 
