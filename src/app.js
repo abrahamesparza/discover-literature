@@ -85,7 +85,7 @@ class App extends React.Component {
               <div className='tc fl w-100'>
                 <img alt='book' className='mt4' value={book.volumeInfo.title} key={book.id} src={book.volumeInfo.imageLinks.thumbnail} onClick={this.handleModal}/><br/>
                 <p className='tc f4 near-white ma4'>{book.volumeInfo.description}</p><br/>
-                <a href={book.volumeInfo.infoLink} className='f4 near-white link underline-hover near-white grow'>Learn More</a>
+                <a target='_blank' href={book.volumeInfo.infoLink} className='f4 near-white link underline-hover near-white grow'>Learn More</a>
              </div>
             )
           }
