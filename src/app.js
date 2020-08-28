@@ -30,7 +30,7 @@ class App extends React.Component {
   searchApi() {
     let { query } = this.state;
     let data = { q: query }
-    fetch(`http://localhost:3000/search`, {
+    fetch(`http://http://ec2-54-193-77-120.us-west-1.compute.amazonaws.com:3000/search`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
