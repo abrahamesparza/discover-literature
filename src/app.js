@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import Search from './components/search';
 import Scroll from './components/scroll';
 
+import { apiKey } from  './../api/key';
+
 import './app.css';
 
 class App extends React.Component {
@@ -29,19 +31,12 @@ class App extends React.Component {
 
   searchApi() {
     let { query } = this.state;
-    let data = { q: query }
-    fetch('http://localhost:3000/search', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&maxResults=40`)
     .then(res => res.json())
     .then(data => {
-      console.log('Success:', data);
+      console.log('Success:', data.items);
       this.setState({
-        matched: data
+        matched: data.items
       })
     })
     .catch((err) => {
